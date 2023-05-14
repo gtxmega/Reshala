@@ -15,6 +15,7 @@ namespace Data
     {
         public bool IsExist;
         public List<LevelSaveData> Levels;
+        public bool IsVolume = true;
 
         public ProgressData()
         {

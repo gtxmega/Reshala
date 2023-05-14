@@ -48,5 +48,10 @@ namespace Game
         {
 
         }
+
+        private void OnApplicationQuit()
+        {
+            _playerProgress.Save();
+        }
     }
 }

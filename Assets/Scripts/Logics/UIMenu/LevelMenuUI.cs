@@ -4,6 +4,7 @@ using Services.Progress;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 namespace Logics.UIMenu
@@ -13,6 +14,7 @@ namespace Logics.UIMenu
         [SerializeField] private RectTransform _rootWidgets;
         [SerializeField] private LevelItemUI _levelItemPrefab;
         [SerializeField] private Sprite[] _levelSprites;
+        [SerializeField] private Toggle _toogle;
 
         private LevelsStorage _levelsStorage;
         private List<LevelSaveData> _allLevels;
@@ -53,6 +55,13 @@ namespace Logics.UIMenu
                     widget.Lock();
                 }
             }
+
+            _toogle.isOn = _gameInstance.Progress.ProgressData.IsVolume;
+        }
+
+        public void ChangeSound(bool _isActive)
+        {
+            _gameInstance.Progress.ProgressData.IsVolume = _isActive;
         }
 
         public void OnSelectLevel(int index)
